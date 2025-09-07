@@ -31,8 +31,10 @@
   {{ end }}
 
   {{ $description := or .Description .Summary site.Params.description }}
+  {{ if $description }}
   {{ $description = printf "content=%q" $description | safeHTMLAttr }}
   <meta name="description" {{ $description }}>
+  {{ end }}
 
   {{ partial "opengraph.html" . }}
 
