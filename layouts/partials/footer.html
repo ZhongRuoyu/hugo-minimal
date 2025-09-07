@@ -1,21 +1,21 @@
-<div class="container flex-footer text-center text-muted fw-light">
+<div class="container flex-footer text-muted fw-light">
   <hr>
   <footer>
-    <p>
+    <div class="d-flex flex-wrap justify-content-center gap-1">
       {{ if .Site.Params.copyright }}
       {{ if reflect.IsSlice .Site.Params.copyright }}
       {{ range .Site.Params.copyright }}
-      <span class="text-nowrap">
+      <span>
         {{ . | htmlUnescape }}
       </span>
       {{ end }}
       {{ else }}
-      <span class="text-nowrap">
+      <span>
         {{ .Site.Params.copyright | htmlUnescape }}
       </span>
       {{ end }}
       {{ else }}
-      <span class="text-nowrap">
+      <span>
         {{ if .Site.Params.author }}
         {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | htmlUnescape }}
         {{ else }}
@@ -23,6 +23,6 @@
         {{ end }}
       </span>
       {{ end }}
-    </p>
+    </div>
   </footer>
 </div>
