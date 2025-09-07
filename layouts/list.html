@@ -7,7 +7,6 @@
         {{ partial "header.html" . }}
         {{ .Content }}
 
-        {{ $isTaxonomyPage := eq .Kind "taxonomy" }}
         {{ if .Pages }}
         <div class="my-5">
           {{ range .Pages }}
@@ -15,7 +14,7 @@
             <a href="{{ .RelPermalink }}" class="text-reset text-decoration-none">
               <h2 class="no-anchor">{{ .Title }}</h2>
 
-              {{ if and (not $isTaxonomyPage) .Date }}
+              {{ if and (eq .Kind "page") .Date }}
               <div class="text-muted my-2">
                 {{ $ISO8601 := "2006-01-02T15:04:05-07:00" }}
                 <time datetime="{{ .Date.Format $ISO8601 }}">
