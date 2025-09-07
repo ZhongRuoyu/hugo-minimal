@@ -1,5 +1,5 @@
-{{ $minimalBootstrapJs := "assets/js/minimal-bootstrap.js" }}
-<script src="{{ $minimalBootstrapJs | relURL }}"></script>
+{{ $minimalBootstrapJs := resources.Get "assets/js/minimal-bootstrap.js" | minify | fingerprint }}
+<script src="{{ $minimalBootstrapJs.RelPermalink }}" integrity="{{ $minimalBootstrapJs.Data.Integrity }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
   integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="

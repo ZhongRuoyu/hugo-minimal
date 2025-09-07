@@ -10,11 +10,12 @@
     {{ end }}
   </title>
 
-  {{ $colorModesJs := "assets/js/color-modes.js" | relURL }}
-  <script data-cfasync="false" src="{{ $colorModesJs }}"></script>
+  {{ $colorModesJs := resources.Get "assets/js/color-modes.js" | minify | fingerprint }}
+  <script data-cfasync="false" src="{{ $colorModesJs.RelPermalink }}"
+    integrity="{{ $colorModesJs.Data.Integrity }}"></script>
 
-  {{ $style := resources.Get "assets/css/style.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  {{ $style := resources.Get "assets/css/style.scss" | css.Sass | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
     integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
