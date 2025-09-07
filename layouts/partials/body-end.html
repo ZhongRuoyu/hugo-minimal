@@ -1,0 +1,19 @@
+{{ $minimalBootstrapJs := "assets/js/minimal-bootstrap.js" }}
+<script src="{{ $minimalBootstrapJs | relURL }}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+  integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+{{ if .Params.anchor }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/5.0.0/anchor.min.js"
+  integrity="sha512-byAcNWVEzFfu+tZItctr+WIMUJvpzT2kokkqcBq+VsrM3OrC5Aj9E2gh+hHpU0XNA3wDmX4sDbV5/nkhvTrj4w=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>anchors.add().remove(".no-anchor");</script>
+{{ end }}
+
+{{ if .Params.mathjax }}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/4.0.0/tex-mml-chtml.min.js"
+  integrity="sha512-yxTB34XQUKlyuz73upeDrZ91/tbZW/YAURVWL3s+09bEWdmORQzUZwSKyBIRxSeHuSwh1aOKEffn2/D65kwyYg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{ end }}

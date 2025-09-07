@@ -1,0 +1,15 @@
+{{ $context := .context | default . }}
+{{ $content := .content | default "" }}
+{{ $center := .center | default false }}
+<div class="container d-flex flex-column">
+  {{ partial "menu.html" (dict "menuID" "main" "page" $context) }}
+  <div class="container container-body d-flex flex-column flex-body{{ if $center }} justify-content-center text-center{{ end }}">
+    <main class="my-4">
+      <article>
+        {{ partial "header.html" $context }}
+        {{ $content | safeHTML }}
+      </article>
+    </main>
+  </div>
+  {{ partial "footer.html" $context }}
+</div>

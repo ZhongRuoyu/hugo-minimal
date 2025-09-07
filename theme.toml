@@ -1,0 +1,11 @@
+name = "Minimal"
+license = "MIT"
+licenselink = "https://github.com/ZhongRuoyu/hugo-minimal/blob/main/LICENSE"
+description = "A minimalist Hugo blog theme"
+homepage = "https://github.com/ZhongRuoyu/hugo-minimal"
+demosite = "https://minimal.ruoyu.io"
+min_version = "0.141.0"
+
+[author]
+name = "Ruoyu Zhong"
+homepage = "https://www.zhongruoyu.com/"

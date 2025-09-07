@@ -1,0 +1,14 @@
+<div class="container flex-footer text-center text-muted fw-light">
+  <hr>
+  <footer>
+    <p>
+      <span class="text-nowrap">
+        {{ if .Site.Params.copyright }}
+        {{ .Site.Params.copyright | htmlUnescape }}
+        {{ else }}
+        {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | htmlUnescape }}
+        {{ end }}
+      </span>
+    </p>
+  </footer>
+</div>

@@ -1,0 +1,46 @@
+{{ $showTitle := and (not .Params.hide_title) .Title }}
+{{ $showSubtitle := and (not .Params.hide_title) .Params.subtitle }}
+{{ $showTitleOrSubtitle := or $showTitle $showSubtitle }}
+{{ $showAuthor := and (eq .Kind "page") (not .Params.hide_author) .Params.author }}
+{{ $showDate := and (eq .Kind "page") (not .Params.hide_date) .Date }}
+
+{{ $displayComponents := 0 }}
+{{ if $showTitle }}
+{{ $displayComponents = add $displayComponents 1 }}
+{{ end }}
+{{ if $showSubtitle }}
+{{ $displayComponents = add $displayComponents 1 }}
+{{ end }}
+{{ if $showAuthor }}
+{{ $displayComponents = add $displayComponents 1 }}
+{{ end }}
+{{ if $showDate }}
+{{ $displayComponents = add $displayComponents 1 }}
+{{ end }}
+
+{{ $headerClass := "my-3" }}
+{{ if gt $displayComponents 1 }}
+{{ $headerClass = "my-5" }}
+{{ end }}
+
+<header class="{{ $headerClass }}">
+  {{ if $showTitleOrSubtitle }}
+  {{ if .Title }}
+  <h1>{{ .Title }}</h1>
+  {{ end }}
+  {{ if .Params.subtitle }}
+  <div class="fs-3 my-2">{{ .Params.subtitle }}</div>
+  {{ end }}
+  {{ end }}
+  {{ if $showAuthor }}
+  <div class="text-muted my-2">{{ .Params.author }}</div>
+  {{ end }}
+  {{ if $showDate }}
+  <div class="text-muted my-2">
+    {{ $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+    <time datetime="{{ .Date.Format $ISO8601 }}">
+      {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}
+    </time>
+  </div>
+  {{ end }}
+</header>

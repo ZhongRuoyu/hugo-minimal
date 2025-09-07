@@ -1,0 +1,8 @@
+{{ define "main" }}
+{{ $content := .Content}}
+{{ if not $content }}
+{{ $content = printf `<p>The page you're looking for can't be found.</p>
+<p><a href="%s">Home</a></p>` .Site.Home.RelPermalink }}
+{{ end }}
+{{ partial "content-wrapper.html" (dict "context" . "content" $content "center" true) }}
+{{ end }}

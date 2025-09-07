@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{{ $lang := printf "lang=%q" (.Site.LanguageCode | default "en") }}
+<html {{ $lang }}>
+
+{{ partial "head.html" . }}
+
+<body>
+  {{ block "main" . }}
+  {{ end }}
+
+  {{ partial "body-end.html" . }}
+</body>
+
+</html>
