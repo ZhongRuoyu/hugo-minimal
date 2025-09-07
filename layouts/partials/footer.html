@@ -6,7 +6,11 @@
         {{ if .Site.Params.copyright }}
         {{ .Site.Params.copyright | htmlUnescape }}
         {{ else }}
+        {{ if .Site.Params.author }}
         {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | htmlUnescape }}
+        {{ else }}
+        {{ printf "Copyright &copy; %d." now.Year | htmlUnescape }}
+        {{ end }}
         {{ end }}
       </span>
     </p>

@@ -3,14 +3,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
-    {{ if .Params.hide_site_title }}
-    {{ .Title | default .Site.Title }}
-    {{ else }}
-    {{ if .Title }}
+    {{ if and .Title .Site.Title (not .Params.hide_site_title) }}
     {{ printf "%s - %s" .Title .Site.Title }}
     {{ else }}
-    {{ .Site.Title }}
-    {{ end }}
+    {{ .Title | default .Site.Title }}
     {{ end }}
   </title>
 
