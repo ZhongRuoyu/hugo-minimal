@@ -17,6 +17,12 @@
   {{ $colorModesJs := "assets/js/color-modes.js" | relURL }}
   <script data-cfasync="false" src="{{ $colorModesJs }}"></script>
 
+  {{ $style := resources.Get "assets/css/style.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
+  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+    integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   {{ range .Site.Params.favicon }}
   {{ $rel := printf "rel=%q" .rel | safeHTMLAttr }}
   {{ $type := printf "type=%q" .type | safeHTMLAttr }}
@@ -26,18 +32,6 @@
 
   {{ if .Site.Params.manifest }}
   <link rel="manifest" href="{{ .Site.Params.manifest | relURL }}">
-  {{ end }}
-
-  {{ $style := resources.Get "assets/css/style.scss" | css.Sass | resources.Minify | resources.Fingerprint }}
-  <link rel="stylesheet" href="{{ $style.RelPermalink }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
-    integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  {{ if .Description }}
-  <meta name="description" content="{{ .Description }}">
-  {{ else if .Site.Params.description }}
-  <meta name="description" content="{{ .Site.Params.description }}">
   {{ end }}
 
   {{ partial "opengraph.html" . }}
