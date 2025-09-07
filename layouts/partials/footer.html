@@ -2,17 +2,27 @@
   <hr>
   <footer>
     <p>
+      {{ if .Site.Params.copyright }}
+      {{ if reflect.IsSlice .Site.Params.copyright }}
+      {{ range .Site.Params.copyright }}
       <span class="text-nowrap">
-        {{ if .Site.Params.copyright }}
+        {{ . | htmlUnescape }}
+      </span>
+      {{ end }}
+      {{ else }}
+      <span class="text-nowrap">
         {{ .Site.Params.copyright | htmlUnescape }}
-        {{ else }}
+      </span>
+      {{ end }}
+      {{ else }}
+      <span class="text-nowrap">
         {{ if .Site.Params.author }}
         {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | htmlUnescape }}
         {{ else }}
         {{ printf "Copyright &copy; %d." now.Year | htmlUnescape }}
         {{ end }}
-        {{ end }}
       </span>
+      {{ end }}
     </p>
   </footer>
 </div>
