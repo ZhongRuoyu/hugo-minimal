@@ -3,15 +3,8 @@
     <ul class="nav">
       {{ with index site.Menus .menuID }}
       {{ range $index, $item := . }}
-      <li class="nav-item me-2">
-        {{ $class := "nav-link text-nowrap py-0" }}
-        {{ if eq $index 0 }}
-        {{ $class = printf "%s %s" $class "ps-0 pe-2" }}
-        {{ else }}
-        {{ $class = printf "%s %s" $class "px-2" }}
-        {{ end }}
-        {{ $class = printf "class=%q" $class | safeHTMLAttr }}
-        <a {{ $class }} href="{{ $item.URL | relURL }}">
+      <li class="nav-item ms-0 me-4 mt-0 mb-3">
+        <a class="nav-link text-nowrap px-0 py-0" href="{{ $item.URL | relURL }}">
           {{ $item.Name }}
         </a>
       </li>
