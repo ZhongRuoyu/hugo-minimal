@@ -18,9 +18,9 @@
 {{ $displayComponents = add $displayComponents 1 }}
 {{ end }}
 
-{{ $headerClass := "my-3" }}
-{{ if gt $displayComponents 1 }}
-{{ $headerClass = "my-5" }}
+{{ $headerClass := "my-5" }}
+{{ if eq $displayComponents 1 }}
+{{ $headerClass = "mt-5 mb-3" }}
 {{ end }}
 
 <header class="{{ $headerClass }}">
