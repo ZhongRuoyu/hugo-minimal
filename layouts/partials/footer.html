@@ -6,20 +6,20 @@
       {{ if reflect.IsSlice .Site.Params.copyright }}
       {{ range .Site.Params.copyright }}
       <span>
-        {{ . | htmlUnescape }}
+        {{ . | safeHTML }}
       </span>
       {{ end }}
       {{ else }}
       <span>
-        {{ .Site.Params.copyright | htmlUnescape }}
+        {{ .Site.Params.copyright | safeHTML }}
       </span>
       {{ end }}
       {{ else }}
       <span>
         {{ if .Site.Params.author }}
-        {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | htmlUnescape }}
+        {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | safeHTML }}
         {{ else }}
-        {{ printf "Copyright &copy; %d." now.Year | htmlUnescape }}
+        {{ printf "Copyright &copy; %d." now.Year | safeHTML }}
         {{ end }}
       </span>
       {{ end }}
