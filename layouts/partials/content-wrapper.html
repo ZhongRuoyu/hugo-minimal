@@ -1,5 +1,6 @@
 {{ $context := .context | default . }}
 {{ $content := .content | default "" }}
+{{ $pages := .pages | default nil }}
 {{ $center := .center | default false }}
 <div class="container d-flex flex-column flex-container">
   {{ partial "menu.html" (dict "menuID" "main" "page" $context) }}
@@ -9,6 +10,14 @@
       <article>
         {{ partial "header.html" $context }}
         {{ $content | safeHTML }}
+
+        {{ if $pages }}
+        <div class="my-5">
+          {{ range $pages }}
+          {{ partial "list-item.html" . }}
+          {{ end }}
+        </div>
+        {{ end }}
       </article>
     </main>
   </div>

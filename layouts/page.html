@@ -1,3 +1,7 @@
 {{ define "main" }}
-{{ partial "content-wrapper.html" (dict "context" . "content" .Content "center" .Params.center) }}
+{{ partial "content-wrapper.html" (dict
+"context" .
+"content" .Content
+"center" .Params.center
+) }}
 {{ end }}
