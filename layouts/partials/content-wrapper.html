@@ -6,7 +6,7 @@
   {{ partial "menu.html" (dict "menuID" "main" "page" $context) }}
   <div class="container container-body d-flex flex-column flex-body
   {{ if $center }} justify-content-center text-center {{ end }}">
-    <main>
+    <main class="mb-5">
       <article>
         {{ partial "header.html" $context }}
         {{ $content | safeHTML }}
