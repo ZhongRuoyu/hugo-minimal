@@ -4,8 +4,13 @@
 {{ $center := .center | default false }}
 <div class="container d-flex flex-column flex-container">
   {{ partial "menu.html" (dict "menuID" "main" "page" $context) }}
-  <div class="container container-body d-flex flex-column flex-body
-  {{ if $center }} justify-content-center text-center {{ end }} mb-5">
+  {{ $divClasses := "container container-body d-flex flex-column flex-body" }}
+  {{ if $center }}
+  {{ $divClasses = printf "%s justify-content-center text-center" $divClasses }}
+  {{ else }}
+  {{ $divClasses = printf "%s mb-5" $divClasses }}
+  {{ end }}
+  <div class="{{ $divClasses }}">
     <main>
       <article>
         {{ partial "header.html" $context }}
