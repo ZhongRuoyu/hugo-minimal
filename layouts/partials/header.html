@@ -18,12 +18,12 @@
 {{ $displayComponents = add $displayComponents 1 }}
 {{ end }}
 
-{{ $headerClass := "my-5" }}
+{{ $headerClasses := "my-5" }}
 {{ if eq $displayComponents 1 }}
-{{ $headerClass = "mt-5 mb-3" }}
+{{ $headerClasses = "mt-5 mb-3" }}
 {{ end }}
 
-<header class="{{ $headerClass }}">
+<header class="{{ $headerClasses }}">
   {{ if $showTitleOrSubtitle }}
   {{ if .Title }}
   <h1>{{ .Title }}</h1>
