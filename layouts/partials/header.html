@@ -33,7 +33,13 @@
   {{ end }}
   {{ end }}
   {{ if $showAuthor }}
-  <div class="text-muted my-2">{{ .Params.author }}</div>
+  {{ $author := .Params.author }}
+  {{ if reflect.IsMap $author }}
+  {{ $author = $author.name }}
+  {{ end }}
+  {{ if $author }}
+  <div class="text-muted my-2">{{ $author }}</div>
+  {{ end }}
   {{ end }}
   {{ if $showDate }}
   <div class="text-muted my-2">

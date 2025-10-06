@@ -33,6 +33,9 @@
   <link rel="canonical" href="{{ .Permalink }}">
 
   {{ $author := or .Params.author site.Params.author }}
+  {{ if reflect.IsMap $author }}
+  {{ $author = $author.name }}
+  {{ end }}
   {{ if $author }}
   {{ $author = printf "content=%q" $author | safeHTMLAttr }}
   <meta name="author" {{ $author }}>

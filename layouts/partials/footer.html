@@ -16,8 +16,12 @@
       {{ end }}
       {{ else }}
       <span>
-        {{ if .Site.Params.author }}
-        {{ printf "Copyright &copy; %d %s." now.Year .Site.Params.author | safeHTML }}
+        {{ $author := .Site.Params.author }}
+        {{ if reflect.IsMap $author }}
+        {{ $author = $author.name }}
+        {{ end }}
+        {{ if $author }}
+        {{ printf "Copyright &copy; %d %s." now.Year $author | safeHTML }}
         {{ else }}
         {{ printf "Copyright &copy; %d." now.Year | safeHTML }}
         {{ end }}
