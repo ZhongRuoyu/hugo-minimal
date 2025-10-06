@@ -30,6 +30,14 @@
   <link rel="manifest" href="{{ .Site.Params.manifest | relURL }}">
   {{ end }}
 
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  {{ $author := or .Params.author site.Params.author }}
+  {{ if $author }}
+  {{ $author = printf "content=%q" $author | safeHTMLAttr }}
+  <meta name="author" {{ $author }}>
+  {{ end }}
+
   {{ $description := or .Description .Summary site.Params.description }}
   {{ if $description }}
   {{ $description = printf "content=%q" $description | safeHTMLAttr }}
