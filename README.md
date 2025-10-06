@@ -50,7 +50,7 @@ To use this theme, you can use one of the following methods.
 
 ## Live Demo
 
-A live demo is available at <https://hugo-minimal.ruoyu.io>
+A live demo is available at <https://minimal.ruoyu.io>
 ([GitHub repository](https://github.com/ZhongRuoyu/hugo-minimal-demo)).
 
 ## License
