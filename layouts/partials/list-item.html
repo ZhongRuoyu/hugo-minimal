@@ -2,7 +2,7 @@
   <a href="{{ .RelPermalink }}" class="text-reset text-decoration-none">
     <h2 class="no-anchor">{{ .Title }}</h2>
 
-    {{ if and .IsPage .Date }}
+    {{ if and (not .Params.hide_date) .Date }}
     <div class="text-muted my-2">
       {{ $ISO8601 := "2006-01-02T15:04:05-07:00" }}
       <time datetime="{{ .Date.Format $ISO8601 }}">
