@@ -1,8 +1,8 @@
 {{ $showTitle := and (not .Params.hide_title) .Title }}
 {{ $showSubtitle := and (not .Params.hide_title) .Params.subtitle }}
 {{ $showTitleOrSubtitle := or $showTitle $showSubtitle }}
-{{ $showAuthor := and (eq .Kind "page") (not .Params.hide_author) .Params.author }}
-{{ $showDate := and (eq .Kind "page") (not .Params.hide_date) .Date }}
+{{ $showAuthor := and .IsPage (not .Params.hide_author) .Params.author }}
+{{ $showDate := and .IsPage (not .Params.hide_date) .Date }}
 
 {{ $displayComponents := 0 }}
 {{ if $showTitle }}
