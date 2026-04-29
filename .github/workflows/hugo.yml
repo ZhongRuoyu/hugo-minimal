@@ -22,11 +22,13 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: ZhongRuoyu/hugo-minimal-demo
+          persist-credentials: false
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           repository: ${{ github.repository }}
           path: themes/minimal
+          persist-credentials: false
       - name: Install Hugo
         run: |
           HUGO_TAG="$(gh api /repos/gohugoio/hugo/releases/latest -q .tag_name)"
@@ -38,5 +40,4 @@ jobs:
       - name: Build with Hugo
         run: hugo
         env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
