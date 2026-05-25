@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{{ $lang := printf "lang=%q" (.Site.LanguageCode | default "en") | safeHTMLAttr }}
+{{ $lang := printf "lang=%q" (.Site.Language.Locale | default "en") | safeHTMLAttr }}
 <html {{ $lang }}>
 
 {{ partial "head.html" . }}
