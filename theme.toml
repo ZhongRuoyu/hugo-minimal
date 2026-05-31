@@ -4,7 +4,7 @@ licenselink = "https://github.com/ZhongRuoyu/hugo-minimal/blob/main/LICENSE"
 description = "A minimalist Hugo blog theme"
 homepage = "https://github.com/ZhongRuoyu/hugo-minimal"
 demosite = "https://minimal.ruoyu.io"
-min_version = "0.141.0"
+min_version = "0.158.0"
 
 [author]
 name = "Ruoyu Zhong"
