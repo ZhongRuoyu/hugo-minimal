@@ -1,8 +1,8 @@
 {{ $minimalBootstrapJs := resources.Get "assets/js/minimal-bootstrap.js" | minify | fingerprint }}
 <script src="{{ $minimalBootstrapJs.RelPermalink }}" integrity="{{ $minimalBootstrapJs.Data.Integrity }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
-  integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.9/js/bootstrap.min.js"
+  integrity="sha512-e4zOZ7FnTZI7kJRWkYI2JKl3+U1FbaFBGa6dOOO6uzKg78sRp48AqLVMpOPjezjoSn4M8RsrbBAvQclR3x7riA=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 {{ if .Params.anchor }}
