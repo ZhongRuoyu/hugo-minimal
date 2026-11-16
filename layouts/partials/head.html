@@ -13,7 +13,7 @@
   <script data-cfasync="false" src="{{ $colorModesJs.RelPermalink }}"
     integrity="{{ $colorModesJs.Data.Integrity }}"></script>
 
-  {{ $style := resources.Get "assets/css/style.scss" | css.Sass | minify | fingerprint }}
+  {{ $style := resources.Get "assets/css/style.css" | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.9/css/bootstrap.min.css"
     integrity="sha512-ZuV2yPmu5OcwTgfUHURSM2QYEMPA9UIPpMr/U9gJEdRB+1VcCJaUc/GJrO9WwZVNR3JB7mgzkRtRwor+BcaPAA=="
